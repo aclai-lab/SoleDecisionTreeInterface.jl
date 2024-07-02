@@ -1,14 +1,14 @@
-using DecisionTreeSoleInterface
+using SoleDecisionTreeInterface
 using Documenter
 
-DocMeta.setdocmeta!(DecisionTreeSoleInterface, :DocTestSetup, :(using DecisionTreeSoleInterface); recursive=true)
+DocMeta.setdocmeta!(SoleDecisionTreeInterface, :DocTestSetup, :(using SoleDecisionTreeInterface); recursive=true)
 
 makedocs(;
-    modules=[DecisionTreeSoleInterface],
+    modules=[SoleDecisionTreeInterface],
     authors="Giovanni Pagliarini",
-    sitename="DecisionTreeSoleInterface.jl",
+    sitename="SoleDecisionTreeInterface.jl",
     format=Documenter.HTML(;
-        canonical="https://giopaglia.github.io/DecisionTreeSoleInterface.jl",
+        canonical="https://giopaglia.github.io/SoleDecisionTreeInterface.jl",
         edit_link="main",
         assets=String[],
     ),
@@ -18,6 +18,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/giopaglia/DecisionTreeSoleInterface.jl",
+    repo="github.com/giopaglia/SoleDecisionTreeInterface.jl",
     devbranch="main",
 )

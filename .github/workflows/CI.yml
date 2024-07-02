@@ -73,6 +73,6 @@ jobs:
         shell: julia --project=docs --color=yes {0}
         run: |
           using Documenter: DocMeta, doctest
-          using DecisionTreeSoleInterface
-          DocMeta.setdocmeta!(DecisionTreeSoleInterface, :DocTestSetup, :(using DecisionTreeSoleInterface); recursive=true)
-          doctest(DecisionTreeSoleInterface)
+          using SoleDecisionTreeInterface
+          DocMeta.setdocmeta!(SoleDecisionTreeInterface, :DocTestSetup, :(using SoleDecisionTreeInterface); recursive=true)
+          doctest(SoleDecisionTreeInterface)

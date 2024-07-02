@@ -1,14 +1,14 @@
 ```@meta
-CurrentModule = DecisionTreeSoleInterface
+CurrentModule = SoleDecisionTreeInterface
 ```
 
-# DecisionTreeSoleInterface
+# SoleDecisionTreeInterface
 
-Documentation for [DecisionTreeSoleInterface](https://github.com/giopaglia/DecisionTreeSoleInterface.jl).
+Documentation for [SoleDecisionTreeInterface](https://github.com/giopaglia/SoleDecisionTreeInterface.jl).
 
 ```@index
 ```
 
 ```@autodocs
-Modules = [DecisionTreeSoleInterface]
+Modules = [SoleDecisionTreeInterface]
 ```
