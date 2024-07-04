@@ -1,7 +1,7 @@
 name = "SoleDecisionTreeInterface"
 uuid = "de8eae22-3630-40e0-868c-abfc4c1bb3da"
 authors = ["Giovanni Pagliarini"]
-version = "1.0.0-DEV"
+version = "0.1.0"
 
 [deps]
 DecisionTree = "7806a523-6efd-50cb-b5f6-3fa6f1930dbb"
