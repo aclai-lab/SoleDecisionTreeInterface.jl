@@ -38,6 +38,7 @@ fit!(mach)
 
 my_dt = solemodel(fitted_params(mach).tree)
 
+@test SoleData.scalarlogiset(X_test) isa PropositionalLogiset
 
 apply!(my_dt, X_test, y_test)
 

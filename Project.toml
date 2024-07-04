@@ -5,19 +5,27 @@ version = "1.0.0-DEV"
 
 [deps]
 DecisionTree = "7806a523-6efd-50cb-b5f6-3fa6f1930dbb"
-MLJ = "add582a8-e3ab-11e8-2d5e-e98b27df1bc7"
-MLJBase = "a7f614a8-145f-11e9-1d2a-a57a1082229d"
-MLJDecisionTreeInterface = "c6f25543-311c-4c74-83dc-3ea6d1015661"
-MLJMultivariateStatsInterface = "1b6a4a23-ba22-4f51-9698-8599985d3728"
 Sole = "7b3b3b3f-8b15-4a80-a798-b383498bc2cf"
-SoleData = "123f1ae1-6307-4526-ab5b-aab3a92a2b8c"
-SoleModels = "4249d9c7-3290-4ddd-961c-e1d3ec2467f8"
 
 [compat]
-julia = "1.6.7"
+DataFrames = "1.6"
+DecisionTree = "0.12"
+MLJ = "0.20"
+MLJBase = "1.6"
+MLJDecisionTreeInterface = "0.4"
+Sole = "0.6"
+SoleData = "0.15"
+SoleModels = "0.8"
+julia = "1"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+MLJ = "add582a8-e3ab-11e8-2d5e-e98b27df1bc7"
+MLJBase = "a7f614a8-145f-11e9-1d2a-a57a1082229d"
+MLJDecisionTreeInterface = "c6f25543-311c-4c74-83dc-3ea6d1015661"
+SoleData = "123f1ae1-6307-4526-ab5b-aab3a92a2b8c"
+SoleModels = "4249d9c7-3290-4ddd-961c-e1d3ec2467f8"
 
 [targets]
 test = ["Test"]
