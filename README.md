@@ -1,14 +1,29 @@
-# SoleDecisionTreeInterface
+# SoleDecisionTreeInterface.jl
 
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://giopaglia.github.io/SoleDecisionTreeInterface.jl/stable/)
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://giopaglia.github.io/SoleDecisionTreeInterface.jl/dev/)
-[![Build Status](https://github.com/giopaglia/SoleDecisionTreeInterface.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/giopaglia/SoleDecisionTreeInterface.jl/actions/workflows/CI.yml?query=branch%3Amain)
-[![Build Status](https://api.cirrus-ci.com/github/giopaglia/SoleDecisionTreeInterface.jl.svg)](https://cirrus-ci.com/github/giopaglia/SoleDecisionTreeInterface.jl)
+ [![Build Status](https://api.cirrus-ci.com/github/giopaglia/SoleDecisionTreeInterface.jl.svg)](https://cirrus-ci.com/github/giopaglia/SoleDecisionTreeInterface.jl) 
 [![Coverage](https://codecov.io/gh/giopaglia/SoleDecisionTreeInterface.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/giopaglia/SoleDecisionTreeInterface.jl)
+
+<!--
+[![Build Status](https://github.com/giopaglia/SoleDecisionTreeInterface.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/giopaglia/SoleDecisionTreeInterface.jl/actions/workflows/CI.yml?query=branch%3Amain)
+-->
+
+Ever wondered what to do with a trained decision tree? Start by inspecting its knowledge, and end up evaluating it in a dedicated framework!
+This package allows you to convert learned [DecisionTree](https://github.com/JuliaAI/DecisionTree.jl) models to [Sole](https://github.com/aclai-lab/Sole.jl) decision tree models.
+With a Sole model in your hand, you can then to treat the extracted knowledge in symbolic form, that is, as a set of logical formulas, which allows you to:
+- Evaluate them in terms of
+  + accuracy (e.g., confidence, lift),
+  + relevance (e.g., support),
+  + interpretability (e.g., syntax height, number of atoms);
+- Modify them;
+- Merge them.
+
+<!-- Note: this is a newly developed package; its potential is still unknown. -->
 
 ## Usage
 
-## Converting to a Sole model
+### Converting to a Sole model
 
 ```julia
 using MLJ
@@ -38,7 +53,7 @@ end
 sole_dt = solemodel(learned_dt_tree)
 ```
 
-## Model study & rule extraction
+### Model inspection & rule study
 
 
 ```julia-repl
