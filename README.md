@@ -1,14 +1,19 @@
-# SoleDecisionTreeInterface
+# SoleDecisionTreeInterface.jl
+
+Convert learned [DecisionTree](https://github.com/JuliaAI/DecisionTree.jl) models to [Sole](https://github.com/aclai-lab/Sole.jl) decision tree models.
 
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://giopaglia.github.io/SoleDecisionTreeInterface.jl/stable/)
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://giopaglia.github.io/SoleDecisionTreeInterface.jl/dev/)
-[![Build Status](https://github.com/giopaglia/SoleDecisionTreeInterface.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/giopaglia/SoleDecisionTreeInterface.jl/actions/workflows/CI.yml?query=branch%3Amain)
-[![Build Status](https://api.cirrus-ci.com/github/giopaglia/SoleDecisionTreeInterface.jl.svg)](https://cirrus-ci.com/github/giopaglia/SoleDecisionTreeInterface.jl)
+ [![Build Status](https://api.cirrus-ci.com/github/giopaglia/SoleDecisionTreeInterface.jl.svg)](https://cirrus-ci.com/github/giopaglia/SoleDecisionTreeInterface.jl) 
 [![Coverage](https://codecov.io/gh/giopaglia/SoleDecisionTreeInterface.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/giopaglia/SoleDecisionTreeInterface.jl)
+
+<!--
+[![Build Status](https://github.com/giopaglia/SoleDecisionTreeInterface.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/giopaglia/SoleDecisionTreeInterface.jl/actions/workflows/CI.yml?query=branch%3Amain)
+-->
 
 ## Usage
 
-## Converting to a Sole model
+### Converting to a Sole model
 
 ```julia
 using MLJ
@@ -38,7 +43,7 @@ end
 sole_dt = solemodel(learned_dt_tree)
 ```
 
-## Model study & rule extraction
+### Model inspection & rule study
 
 
 ```julia-repl
