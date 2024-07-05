@@ -36,29 +36,32 @@ mach = machine(model, X_train, y_train)
 fit!(mach)
 
 
-my_dt = solemodel(fitted_params(mach).tree)
+sole_dt = solemodel(fitted_params(mach).tree)
 
 @test SoleData.scalarlogiset(X_test; allow_propositional = true) isa PropositionalLogiset
 
 # Make test instances flow into the model
-apply!(my_dt, X_test, y_test)
+apply!(sole_dt, X_test, y_test)
 
-my_dt = @test_nowarn @btime solemodel(fitted_params(mach).tree, true)
-my_dt = @test_nowarn @btime solemodel(fitted_params(mach).tree, false)
+# apply!(sole_dt, X_test, y_test, mode = :append)
 
+sole_dt = @test_nowarn @btime solemodel(fitted_params(mach).tree, true)
+sole_dt = @test_nowarn @btime solemodel(fitted_params(mach).tree, false)
 
-printmodel(tree2; max_depth = 7, show_intermediate_finals = true, show_metrics = true)
+printmodel(sole_dt; max_depth = 7, show_intermediate_finals = true, show_metrics = true)
 
-printmodel.(listrules(tree2, min_lift = 1.0, min_ninstances = 0); show_metrics = true);
+printmodel.(listrules(sole_dt, min_lift = 1.0, min_ninstances = 0); show_metrics = true);
 
-printmodel.(listrules(tree2, min_lift = 1.0, min_ninstances = 0); show_metrics = true, show_subtree_metrics = true);
+printmodel.(listrules(sole_dt, min_lift = 1.0, min_ninstances = 0); show_metrics = true, show_subtree_metrics = true);
 
-printmodel.(listrules(tree2, min_lift = 1.0, min_ninstances = 0); show_metrics = true, show_subtree_metrics= true, tree_mode=true);
+printmodel.(listrules(sole_dt, min_lift = 1.0, min_ninstances = 0); show_metrics = true, show_subtree_metrics= true, tree_mode=true);
 
-readmetrics.(listrules(tree2; min_lift=1.0, min_ninstances = 0))
+readmetrics.(listrules(sole_dt; min_lift=1.0, min_ninstances = 0))
 
-printmodel.(listrules(tree2, min_lift = 1.0, min_ninstances = 0); show_metrics = true);
+printmodel.(listrules(sole_dt, min_lift = 1.0, min_ninstances = 0); show_metrics = true);
 
-interesting_rules = listrules(tree2; min_lift=1.0, min_ninstances = 0, custom_thresholding_callback = (ms)->ms.coverage*ms.ninstances >= 4)
+interesting_rules = listrules(sole_dt; min_lift=1.0, min_ninstances = 0, custom_thresholding_callback = (ms)->ms.coverage*ms.ninstances >= 4)
 # printmodel.(sort(interesting_rules, by = readmetrics); show_metrics = (; round_digits = nothing, ));
 printmodel.(sort(interesting_rules, by = readmetrics); show_metrics = (; round_digits = nothing, additional_metrics = (; length = r->natoms(antecedent(r)))));
+
+@test_broken joinrules(interesting_rules)

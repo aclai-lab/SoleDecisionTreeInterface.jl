@@ -96,7 +96,7 @@ julia> # Show rules with an additional metric (syntax height of the rule's antec
 ▣ (V4 ≥ 0.8) ∧ (V3 ≥ 5.05)  ↣  virginica : (ninstances = 30, ncovered = 11, coverage = 0.36666666666666664, confidence = 0.9090909090909091, height = 1, lift = 2.2727272727272725)
 
 julia> # Pretty table of rules and their metrics
-       SoleModels.metricstable(interesting_rules; metrics_kwargs = (; round_digits = nothing, additional_metrics = (; height = r->SoleLogics.height(antecedent(r)))))
+       metricstable(interesting_rules; metrics_kwargs = (; round_digits = nothing, additional_metrics = (; height = r->SoleLogics.height(antecedent(r)))))
 ┌────────────────────────────────────────┬────────────┬────────────┬──────────┬───────────┬────────────┬────────┬─────────┐
 │                             Antecedent │ Consequent │ ninstances │ ncovered │  coverage │ confidence │ height │    lift │
 ├────────────────────────────────────────┼────────────┼────────────┼──────────┼───────────┼────────────┼────────┼─────────┤
