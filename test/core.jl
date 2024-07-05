@@ -38,12 +38,13 @@ fit!(mach)
 
 my_dt = solemodel(fitted_params(mach).tree)
 
-@test SoleData.scalarlogiset(X_test) isa PropositionalLogiset
+@test SoleData.scalarlogiset(X_test; allow_propositional = true) isa PropositionalLogiset
 
+# Make test instances flow into the model
 apply!(my_dt, X_test, y_test)
 
-# my_dt = solemodel(fitted_params(mach).tree, true)
-# my_dt = solemodel(fitted_params(mach).tree, false)
+my_dt = @test_nowarn @btime solemodel(fitted_params(mach).tree, true)
+my_dt = @test_nowarn @btime solemodel(fitted_params(mach).tree, false)
 
 
 printmodel(tree2; max_depth = 7, show_intermediate_finals = true, show_metrics = true)
