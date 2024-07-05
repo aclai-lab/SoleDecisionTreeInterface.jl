@@ -30,8 +30,6 @@ using MLJ
 using MLJDecisionTreeInterface
 using DataFrames
 
-using SoleDecisionTreeInterface
-
 X, y = @load_iris
 X = DataFrame(X)
 
@@ -47,6 +45,8 @@ learned_dt_tree = begin
   fit!(mach)
   fitted_params(mach).tree
 end
+
+using SoleDecisionTreeInterface
 
 # Convert to Sole model
 sole_dt = solemodel(learned_dt_tree)
