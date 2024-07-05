@@ -31,7 +31,6 @@ using MLJDecisionTreeInterface
 using DataFrames
 
 using SoleDecisionTreeInterface
-using Sole
 
 X, y = @load_iris
 X = DataFrame(X)
@@ -57,6 +56,8 @@ sole_dt = solemodel(learned_dt_tree)
 
 
 ```julia-repl
+julia> using Sole;
+
 julia> # Make test instances flow into the model, so that test metrics can, then, be computed.
        apply!(sole_dt, X_test, y_test);
 
