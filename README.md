@@ -1,7 +1,14 @@
 # SoleDecisionTreeInterface.jl
 
-Convert learned [DecisionTree](https://github.com/JuliaAI/DecisionTree.jl) models to [Sole](https://github.com/aclai-lab/Sole.jl) decision tree models.
-This allows to treat the extracted knowledge in symbolic form, that is, as a set of logical formulas.
+Ever wondered what to do with a trained decision tree? Start by inspecting its knowledge, and end up evaluating it in a dedicated framework!
+This package allows you to convert learned [DecisionTree](https://github.com/JuliaAI/DecisionTree.jl) models to [Sole](https://github.com/aclai-lab/Sole.jl) decision tree models.
+With a Sole model in your hand, you can then to treat the extracted knowledge in symbolic form, that is, as a set of logical formulas, which allows you to:
+- Evaluate them in terms of
+  + accuracy (e.g., confidence, lift),
+  + relevance (e.g., support),
+  + interpretability (e.g., syntax height, number of atoms);
+- Modify them;
+- Merge them.
 
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://giopaglia.github.io/SoleDecisionTreeInterface.jl/stable/)
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://giopaglia.github.io/SoleDecisionTreeInterface.jl/dev/)
