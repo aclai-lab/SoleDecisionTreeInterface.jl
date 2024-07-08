@@ -1,8 +1,10 @@
 module SoleDecisionTreeInterface
 
+using Reexport
+
 import DecisionTree as DT
 
-using Sole
+@reexport using Sole
 using Sole: DecisionTree
 
 export solemodel
