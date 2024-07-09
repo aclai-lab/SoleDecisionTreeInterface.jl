@@ -8,7 +8,7 @@ makedocs(;
     authors="Giovanni Pagliarini",
     sitename="SoleDecisionTreeInterface.jl",
     format=Documenter.HTML(;
-        canonical="https://giopaglia.github.io/SoleDecisionTreeInterface.jl",
+        canonical="https://aclai-lab.github.io/SoleDecisionTreeInterface.jl",
         edit_link="main",
         assets=String[],
     ),
