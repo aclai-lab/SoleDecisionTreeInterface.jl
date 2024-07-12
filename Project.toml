@@ -30,4 +30,4 @@ SoleModels = "4249d9c7-3290-4ddd-961c-e1d3ec2467f8"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [targets]
-test = ["Test"]
+test = ["Test", "DataFrames", "MLJ", "MLJBase", "MLJDecisionTreeInterface", "SoleData", "SoleModels"]
