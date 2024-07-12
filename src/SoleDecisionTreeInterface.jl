@@ -9,18 +9,19 @@ using Sole: DecisionTree
 
 export solemodel
 
-function solemodel(tree::DT.InfoNode, keep_condensed = false)
+function solemodel(tree::DT.InfoNode, keep_condensed = false, use_featurenames = true, kwargs...)
     # @show fieldnames(typeof(tree))
+    use_featurenames = use_featurenames ? tree.info.featurenames : false
     root, info = begin
         if keep_condensed
-            root = solemodel(tree.node)
+            root = solemodel(tree.node; use_featurenames = use_featurenames, kwargs...)
             info = (;
                 apply_preprocess=(y -> UInt32(findfirst(x -> x == y, tree.info.classlabels))),
                 apply_postprocess=(y -> tree.info.classlabels[y]),
             )
             root, info
         else
-            root = solemodel(tree.node, tree.info.classlabels)
+            root = solemodel(tree.node; replace_classlabels = tree.info.classlabels, use_featurenames = use_featurenames, kwargs...)
             info = (;)
             root, info
         end
@@ -48,13 +49,14 @@ end
 #     return DecisionTree(root, info)
 # end
 
-function solemodel(tree::DT.Node, replace_classlabels = nothing)
+function solemodel(tree::DT.Node; replace_classlabels = nothing, use_featurenames = false)
     test_operator = (<)
     # @show fieldnames(typeof(tree))
-    cond = ScalarCondition(Sole.VariableValue(tree.featid), test_operator, tree.featval)
+    feature = (use_featurenames != false) ? Sole.VariableValue(use_featurenames[tree.featid]) : Sole.VariableValue(tree.featid)
+    cond = ScalarCondition(feature, test_operator, tree.featval)
     antecedent = Atom(cond)
-    lefttree = solemodel(tree.left, replace_classlabels)
-    righttree = solemodel(tree.right, replace_classlabels)
+    lefttree = solemodel(tree.left; replace_classlabels = replace_classlabels, use_featurenames = use_featurenames)
+    righttree = solemodel(tree.right; replace_classlabels = replace_classlabels, use_featurenames = use_featurenames)
     info = (;
         supporting_predictions = [lefttree.info[:supporting_predictions]..., righttree.info[:supporting_predictions]...],
         supporting_labels = [lefttree.info[:supporting_labels]..., righttree.info[:supporting_labels]...],
@@ -62,7 +64,7 @@ function solemodel(tree::DT.Node, replace_classlabels = nothing)
     return Branch(antecedent, lefttree, righttree, info)
 end
 
-function solemodel(tree::DT.Leaf, replace_classlabels = nothing)
+function solemodel(tree::DT.Leaf; replace_classlabels = nothing, use_featurenames = false)
     # @show fieldnames(typeof(tree))
     prediction = tree.majority
     labels = tree.values
