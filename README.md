@@ -9,6 +9,7 @@
 [![Build Status](https://api.cirrus-ci.com/github/giopaglia/SoleDecisionTreeInterface.jl.svg)](https://cirrus-ci.com/github/giopaglia/SoleDecisionTreeInterface.jl) 
 -->
 
+
 Ever wondered what to do with a trained decision tree? Start by inspecting its knowledge, and end up evaluating it in a dedicated framework!
 This package allows you to convert learned [DecisionTree](https://github.com/JuliaAI/DecisionTree.jl) models to [Sole](https://github.com/aclai-lab/Sole.jl) decision tree models.
 With a Sole model in your hand, you can then to treat the extracted knowledge in symbolic form, that is, as a set of logical formulas, which allows you to:
