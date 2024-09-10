@@ -7,8 +7,13 @@ import DecisionTree as DT
 @reexport using Sole
 using Sole: DecisionTree
 
-export solemodel
+export solemodel, solemodel_forest
 
+function solemodel_forest(model::DecisionTree.Ensemble{Float64, String})
+    forest = DecisionForest(map(t -> DecisionTree(solemodel(t)), model.trees))
+    return forest
+end
+    
 function solemodel(tree::DT.InfoNode, keep_condensed = false, use_featurenames = true, kwargs...)
     # @show fieldnames(typeof(tree))
     use_featurenames = use_featurenames ? tree.info.featurenames : false
