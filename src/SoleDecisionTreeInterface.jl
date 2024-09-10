@@ -79,7 +79,7 @@ function solemodel(tree::DT.Leaf; replace_classlabels = nothing, use_featurename
     return SoleModels.ConstantModel(prediction, info)
 end
 
-function solemodel_forest(model::DecisionTree.Ensemble{Float64, String})
+function solemodel_forest(model)
     forest = DecisionForest(map(t -> DecisionTree(solemodel(t)), model.trees))
     return forest
 end
