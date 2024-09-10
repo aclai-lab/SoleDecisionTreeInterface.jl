@@ -8,11 +8,6 @@ import DecisionTree as DT
 using Sole: DecisionTree
 
 export solemodel, solemodel_forest
-
-function solemodel_forest(model::DecisionTree.Ensemble{Float64, String})
-    forest = DecisionForest(map(t -> DecisionTree(solemodel(t)), model.trees))
-    return forest
-end
     
 function solemodel(tree::DT.InfoNode, keep_condensed = false, use_featurenames = true, kwargs...)
     # @show fieldnames(typeof(tree))
@@ -31,7 +26,7 @@ function solemodel(tree::DT.InfoNode, keep_condensed = false, use_featurenames =
             root, info
         end
     end
-
+    
     info = merge(info, (;
             featurenames=tree.info.featurenames,
             # 
@@ -82,6 +77,11 @@ function solemodel(tree::DT.Leaf; replace_classlabels = nothing, use_featurename
         supporting_labels = labels,
     )
     return SoleModels.ConstantModel(prediction, info)
+end
+
+function solemodel_forest(model::DecisionTree.Ensemble{Float64, String})
+    forest = DecisionForest(map(t -> DecisionTree(solemodel(t)), model.trees))
+    return forest
 end
 
 end
