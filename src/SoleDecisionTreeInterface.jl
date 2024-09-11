@@ -7,7 +7,7 @@ import DecisionTree as DT
 @reexport using Sole
 using Sole: DecisionTree
 
-export solemodel, solemodel_forest
+export solemodel
     
 function solemodel(tree::DT.InfoNode, keep_condensed = false, use_featurenames = true, kwargs...)
     # @show fieldnames(typeof(tree))
