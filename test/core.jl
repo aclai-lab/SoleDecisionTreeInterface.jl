@@ -6,6 +6,7 @@ using DataFrames
 
 using MLJDecisionTreeInterface
 using SoleDecisionTreeInterface
+using BenchmarkTools
 using Sole
 
 X, y = @load_iris
@@ -64,4 +65,4 @@ interesting_rules = listrules(sole_dt; min_lift=1.0, min_ninstances = 0, custom_
 # printmodel.(sort(interesting_rules, by = readmetrics); show_metrics = (; round_digits = nothing, ));
 printmodel.(sort(interesting_rules, by = readmetrics); show_metrics = (; round_digits = nothing, additional_metrics = (; length = r->natoms(antecedent(r)))));
 
-@test_broken joinrules(interesting_rules)
+@test_broken joinrules(interesting_rules) != "Check this result."
