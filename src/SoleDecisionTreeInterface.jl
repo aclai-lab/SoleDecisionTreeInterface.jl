@@ -5,11 +5,16 @@ using Reexport
 import DecisionTree as DT
 
 @reexport using Sole
-using Sole: DecisionTree
+using Sole: DecisionTree, DecisionForest
 
 export solemodel
 
-function solemodel(tree::DT.InfoNode, keep_condensed = false, use_featurenames = true, kwargs...)
+
+function solemodel(model::DT.Ensemble, args...; kwargs...)
+    return SoleModels.DecisionForest(map(t -> SoleModels.DecisionTree(solemodel(t, args...; kwargs...)), model.trees))
+end
+
+function solemodel(tree::DT.InfoNode, keep_condensed = false; use_featurenames = true, kwargs...)
     # @show fieldnames(typeof(tree))
     use_featurenames = use_featurenames ? tree.info.featurenames : false
     root, info = begin
