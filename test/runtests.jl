@@ -13,7 +13,8 @@ end
 println("Julia version: ", VERSION)
 
 test_suites = [
-    ("Core", ["core.jl",]),
+    ("Tree", ["tree.jl",]),
+    ("Forest", ["forest.jl",]),
 ]
 
 @testset "SoleDecisionTreeInterface.jl" begin
