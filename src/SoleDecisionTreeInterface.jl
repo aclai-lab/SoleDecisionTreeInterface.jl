@@ -5,7 +5,8 @@ using Reexport
 import DecisionTree as DT
 
 @reexport using Sole
-using Sole: DecisionTree
+using Sole: DecisionTree, DecisionForest
+import Sole: solemodel
 
 export solemodel
 
