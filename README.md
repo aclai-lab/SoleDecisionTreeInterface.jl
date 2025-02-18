@@ -1,3 +1,5 @@
+> **Warning:** This repository is deprecated. All functionalities have been moved to (a package extension of) [SoleModels.jl](https://github.com/aclai-lab/SoleModels.jl). Please refer to that repository for continued support and updates.
+
 # SoleDecisionTreeInterface.jl
 
 [![Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://aclai-lab.github.io/SoleDecisionTreeInterface.jl/stable/)
