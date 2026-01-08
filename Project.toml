@@ -7,6 +7,7 @@ version = "0.1.5"
 DecisionTree = "7806a523-6efd-50cb-b5f6-3fa6f1930dbb"
 Reexport = "189a3867-3050-52da-a836-e630ba90ab69"
 Sole = "7b3b3b3f-8b15-4a80-a798-b383498bc2cf"
+SoleModels = "4249d9c7-3290-4ddd-961c-e1d3ec2467f8"
 
 [compat]
 DataFrames = "1.6"
@@ -21,9 +22,9 @@ SoleModels = "0.9"
 julia = "1"
 
 [extras]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 MLJ = "add582a8-e3ab-11e8-2d5e-e98b27df1bc7"
-BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 MLJBase = "a7f614a8-145f-11e9-1d2a-a57a1082229d"
 MLJDecisionTreeInterface = "c6f25543-311c-4c74-83dc-3ea6d1015661"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
